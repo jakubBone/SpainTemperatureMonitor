@@ -1,19 +1,19 @@
-public class SpainTemperatureMonitor {
+public class TemperatureTest {
     public static void main(String[] args) {
 
-        SpainTemperatureMonitor x = new SpainTemperatureMonitor();
+        TemperatureTest x = new TemperatureTest();
         Month august = new Month(31);
         august.createTemperature();
         august.printTemperature();
         System.out.println();
 
 
-        x.temperatureDaysComparator(august.temperatureList);
+        x.temperatureSorter(august.temperatureList);
         august.printTemperature();
 
 
     }
-    public void temperatureDaysComparator(int[] temperatureList) {
+    public void temperatureSorter(int[] temperatureList) {
         int parameter = 0;
         for (int i = 0; i < temperatureList.length - 1 ; i++) {
             for (int j = 0; j < temperatureList.length - 1; j++) {
