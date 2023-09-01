@@ -5,9 +5,36 @@ public abstract class Month {
     int year;
     int monthDays;
     int[] temperatureList;
+    Scanner sc = new Scanner(System.in);
+    public void temperatureMonitor(){
+        boolean ifNextCity = true;
+        String status;
+        boolean ifContinue = true;
+        while(ifContinue) {
+            askForMonth();
+            createTemperature();
+            printTemperature();
+            temperatureSorter();
+            printTemperature();
+            System.out.println();
 
+            while (ifNextCity) {
+                System.out.println("Next city? Yes - enter 1; No - enter 0");
+                status = sc.nextLine();
+                System.out.println();
+                if (status == "1")
+                    break;
+                else if (status == "0") {
+                    System.out.println("Thank you. Goodbye");
+                    ifNextCity = false;
+                    break;
+                }
+                if (status != "0" && status != "1")
+                    System.out.println("Incorrect. Try again.");
+            }
+        }
+    }
     public void askForMonth(){
-        Scanner sc = new Scanner(System.in);
         System.out.println("Choose the year: ");
         year = sc.nextInt();
 
@@ -22,13 +49,16 @@ public abstract class Month {
                 monthDays = 30;
                 break;
             case 2:
-                if((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
+                if((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
                     monthDays = 29;
-                else
+                    System.out.println("Leap year - 29days in February ");
+                }
+                else {
                     monthDays = 28;
+                    System.out.println("Non-leap year - 28days in February");
+                }
         }
     }
-
 
     // Daily temperature creator method illustrating every day monitoring
     // Temperature is set randomly from the range of 25 - 45 degrees
