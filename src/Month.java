@@ -17,26 +17,10 @@ public abstract class Month {
             temperatureSorter();
             printTemperature();
             System.out.println();
-            operationStatus();
         }
+
     }
 
-    public void operationStatus() {
-        boolean y = true;
-        while(y){
-            System.out.println("Next city? Yes - enter 1; No - enter 0");
-            String status = sc.nextLine();
-            sc.nextLine();
-            if (status == "0" || status == "1") {
-                if (status == "0") {
-                    System.out.println("Bye bye");
-                    y = false;
-                }
-            }
-            else
-                System.out.println("Incorrect. Try again");
-        }
-    }
     public void askForMonth(){
         System.out.println("Choose the year: ");
         year = sc.nextInt();
