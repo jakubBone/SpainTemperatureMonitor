@@ -5,33 +5,36 @@ public abstract class Month {
     int year;
     int monthDays;
     int[] temperatureList;
+
+    static boolean x;
+
     Scanner sc = new Scanner(System.in);
-    public void temperatureMonitor(){
-        boolean ifNextCity = true;
-        String status;
-        boolean ifContinue = true;
-        while(ifContinue) {
+    public void temperatureMonitor() {
+        while (true) {
             askForMonth();
             createTemperature();
             printTemperature();
             temperatureSorter();
             printTemperature();
             System.out.println();
+            operationStatus();
+        }
+    }
 
-            while (ifNextCity) {
-                System.out.println("Next city? Yes - enter 1; No - enter 0");
-                status = sc.nextLine();
-                System.out.println();
-                if (status == "1")
-                    break;
-                else if (status == "0") {
-                    System.out.println("Thank you. Goodbye");
-                    ifNextCity = false;
-                    break;
+    public void operationStatus() {
+        boolean y = true;
+        while(y){
+            System.out.println("Next city? Yes - enter 1; No - enter 0");
+            String status = sc.nextLine();
+            sc.nextLine();
+            if (status == "0" || status == "1") {
+                if (status == "0") {
+                    System.out.println("Bye bye");
+                    y = false;
                 }
-                if (status != "0" && status != "1")
-                    System.out.println("Incorrect. Try again.");
             }
+            else
+                System.out.println("Incorrect. Try again");
         }
     }
     public void askForMonth(){
