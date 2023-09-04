@@ -13,8 +13,10 @@ public abstract class Month {
         while (true) {
             askForMonth();
             createTemperature();
+            System.out.print("Temperatures from 1st to last day of month ||  ");
             printTemperature();
             temperatureSorter();
+            System.out.print("Temperatures ordered from the the smallest to the highest || ");
             printTemperature();
             System.out.println();
         }
@@ -48,13 +50,22 @@ public abstract class Month {
     }
 
     // Daily temperature creator method illustrating every day monitoring
-    // Temperature is set randomly from the range of 25 - 45 degrees
+    // Temperature is set randomly in the range of temperature depeding on month
     // Temperature order -> from 1st to the last day of month
     public void createTemperature() {
         temperatureList = new int[monthDays];
-        if(monthIndex >= 0 && monthIndex <= 4)
-        for (int i = 0; i < monthDays; i++) {
-            temperatureList[i] = (int) (Math.random() * (45 - 25) + 25);
+        if (monthIndex >= 0 && monthIndex <= 4 || monthIndex >= 10 && monthIndex <= 12) {
+            for (int i = 0; i < monthDays; i++) {
+                temperatureList[i] = (int) (Math.random() * (25 - 10) + 10);
+            }
+        } else if (monthIndex >= 5 && monthIndex <= 6){
+            for (int i = 0; i < monthDays; i++) {
+                temperatureList[i] = (int) (Math.random() * (35 - 25) + 25);
+            }
+        } else if (monthIndex >= 7 && monthIndex <= 9){
+            for (int i = 0; i < monthDays; i++) {
+                temperatureList[i] = (int) (Math.random() * (45 - 25) + 25);
+            }
         }
     }
     public void printTemperature() {
