@@ -15,7 +15,7 @@ public class City extends Month{
         System.out.print(name + " - temperatures from 1st to last day of month:  ");
         printTemperature();
         temperatureSorter();
-        System.out.print(name + " - temperatures ordered from the the smallest to the highest: ");
+        System.out.print(name + " - temperatures ordered from the the lowest to the highest: ");
         printTemperature();
         System.out.println();
         System.out.println("Would you like to check next city? YES: 1 or NO: 0");
