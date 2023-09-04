@@ -11,6 +11,7 @@ public class City extends Month{
     public void temperatureMonitor() {
         askForMonth();
         createTemperature();
+        System.out.println();
         System.out.print(name + " - temperatures from 1st to last day of month ||  ");
         printTemperature();
         temperatureSorter();
