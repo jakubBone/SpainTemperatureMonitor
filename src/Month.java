@@ -6,11 +6,10 @@ public abstract class Month {
     int monthDays;
     int[] temperatureList;
 
-    static boolean x;
+    static int status = 1;
 
     Scanner sc = new Scanner(System.in);
     public void temperatureMonitor() {
-        while (true) {
             askForMonth();
             createTemperature();
             System.out.print("Temperatures from 1st to last day of month ||  ");
@@ -19,9 +18,10 @@ public abstract class Month {
             System.out.print("Temperatures ordered from the the smallest to the highest || ");
             printTemperature();
             System.out.println();
-        }
+            System.out.println("Would you like to check next city? YES: 1, NO: 0");
+            status = sc.nextInt();
 
-    }
+        }
 
     public void askForMonth(){
         System.out.println("Choose the year: ");
