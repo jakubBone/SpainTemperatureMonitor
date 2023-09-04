@@ -5,7 +5,6 @@ public abstract class Month {
     int year;
     int monthDays;
     int[] temperatureList;
-
     static int status = 1;
 
     Scanner sc = new Scanner(System.in);
