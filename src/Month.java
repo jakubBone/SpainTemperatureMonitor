@@ -9,8 +9,9 @@ public abstract class Month {
 
     Scanner sc = new Scanner(System.in);
 
+    // The principal method assuming the app logic
     public void temperatureMonitor() {
-        askForMonth();
+        askForDate();
         createTemperature();
         System.out.print("Temperatures from 1st to last day of month ||  ");
         printTemperature();
@@ -22,7 +23,8 @@ public abstract class Month {
         status = sc.nextInt();
     }
 
-    public void askForMonth() {
+    // The method asks a user for the date and checks if it is correct and if the year is leap
+    public void askForDate() {
         while (true) {
             System.out.println("Choose the year: ");
             year = sc.nextInt();
@@ -64,50 +66,50 @@ public abstract class Month {
                     System.out.println("Non-leap year - 28days in February");
                 }
         }
-
     }
 
-        // Daily temperature creator method illustrating every day monitoring
-        // Temperature is set randomly in the range of temperature depeding on month
-        // Temperature order -> from 1st to the last day of month
-        public void createTemperature () {
-            temperatureList = new int[monthDays];
-            if (monthIndex >= 0 && monthIndex <= 4 || monthIndex >= 10 && monthIndex <= 12) {
-                for (int i = 0; i < monthDays; i++) {
-                    temperatureList[i] = (int) (Math.random() * (25 - 10) + 10);
-                }
-            } else if (monthIndex >= 5 && monthIndex <= 6) {
-                for (int i = 0; i < monthDays; i++) {
-                    temperatureList[i] = (int) (Math.random() * (35 - 25) + 25);
-                }
-            } else if (monthIndex >= 7 && monthIndex <= 9) {
+    // The method illustrates every day temperature monitoring
+    // The temperature is setted randomy. The range of temperature depeds on the month and the season
+    // The temperature order: 1st day -> last day of a month
+    public void createTemperature () {
+        temperatureList = new int[monthDays];
+        if (monthIndex >= 0 && monthIndex <= 4 || monthIndex >= 10 && monthIndex <= 12) {
+            for (int i = 0; i < monthDays; i++) {
+                temperatureList[i] = (int) (Math.random() * (25 - 10) + 10);
+            }
+    } else if (monthIndex >= 5 && monthIndex <= 6) {
+            for (int i = 0; i < monthDays; i++) {
+                temperatureList[i] = (int) (Math.random() * (35 - 25) + 25);
+            }
+        } else if (monthIndex >= 7 && monthIndex <= 9) {
                 for (int i = 0; i < monthDays; i++) {
                     temperatureList[i] = (int) (Math.random() * (45 - 25) + 25);
-                }
             }
-        }
-        public void printTemperature () {
-            for(int i = 0; i < temperatureList.length; i++)
-                if(i == temperatureList.length - 1)
-                    System.out.println(temperatureList[i]);
-                else
-                    System.out.print(temperatureList[i] + ", ");
-
-            /*for (int element : temperatureList) {
-                    System.out.print(element + ", ");
-            }*/
-        }
-        public void temperatureSorter () {
-            int parameter = 0;
-            for (int i = 0; i < temperatureList.length - 1; i++) {
-                for (int j = 0; j < temperatureList.length - 1; j++) {
-                    if (temperatureList[j] > temperatureList[j + 1]) {
-                        parameter = temperatureList[j + 1];
-                        temperatureList[j + 1] = temperatureList[j];
-                        temperatureList[j] = parameter;
-                    }
-                }
-            }
-            System.out.println();
         }
     }
+
+    // The method prints temperatures
+    public void printTemperature () {
+        for (int i = 0; i < temperatureList.length; i++) {
+            if (i == temperatureList.length - 1)
+                System.out.println(temperatureList[i]);
+            else
+                System.out.print(temperatureList[i] + ", ");
+        }
+    }
+
+    // The method sorts the temperatures using bubble sorting method
+    public void temperatureSorter () {
+        int parameter = 0;
+        for (int i = 0; i < temperatureList.length - 1; i++) {
+            for (int j = 0; j < temperatureList.length - 1; j++) {
+                if (temperatureList[j] > temperatureList[j + 1]) {
+                    parameter = temperatureList[j + 1];
+                    temperatureList[j + 1] = temperatureList[j];
+                    temperatureList[j] = parameter;
+                }
+            }
+        }
+        System.out.println();
+    }
+}
