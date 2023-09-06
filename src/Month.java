@@ -1,13 +1,36 @@
 import java.util.Scanner;
 
 public abstract class Month {
-    int monthIndex;
-    int year;
-    int monthDays;
-    int[] temperatureList;
+    private int monthIndex;
+    private int year;
+    private int monthDays;
+    private int[] temperatureList;
     static int status = 1;
-
     Scanner sc = new Scanner(System.in);
+
+    public int getMonthIndex() {
+        return monthIndex;
+    }
+
+    public void setMonthIndex(int monthIndex) {
+        this.monthIndex = monthIndex;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public int getMonthDays() {
+        return monthDays;
+    }
+
+    public void setMonthDays(int monthDays) {
+        this.monthDays = monthDays;
+    }
 
     // The principal method assuming the app logic
     public void temperatureMonitor() {
