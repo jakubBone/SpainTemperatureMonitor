@@ -7,7 +7,9 @@ public class Hotel {
         this.starsRating = starsRating;
     }
     @Override
-    public String hotelRateing(){
+    public String toString(){
         return name + " " + starsRating;
     }
+
+
 }
