@@ -1,6 +1,4 @@
-import java.util.Scanner;
-
-public class TemperatureTest {
+public class TestClass {
     public static void main(String[] args) {
         while (Month.status == 1) {
             City newCity = new City();
